@@ -8,7 +8,7 @@ This repository contains simple examples to illustrate usage and features of voc
 
 Each example is located in a subdirectory with it's own `README.md` for additional description.
 
-* `vue-multiselect` select concepts from a vocabulary with [Vue-Multiselect].
+* **[vue-multiselect](vue-multiselect)** select concepts from a vocabulary with [Vue-Multiselect].
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
 
