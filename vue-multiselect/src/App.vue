@@ -44,6 +44,13 @@ import Multiselect from "vue-multiselect";
 import cdk from "cocoda-sdk";
 import jskos from "jskos-tools";
 
+const scheme = {
+  uri: "http://zbw.eu/stw",
+  identifier: ["http://bartoc.org/en/node/313"],
+  VOCID: "stw",
+  uriPattern: "^http://zbw\\.eu/stw/descriptor/(\\d+\\-\\d)$",
+};
+
 export default {
   name: "App",
   components: {
@@ -52,20 +59,30 @@ export default {
   data() {
     return {
       isLoading: false,
+      // Top concepts loaded in mounted
+      topConcepts: [],
       // The selected concepts (= shown as tags)
       selected: [],
       // The results of the search query
       results: [],
+      // The scheme we want to tag with (see above)
+      scheme,
       // The registry we are using for API queries
       registry: cdk.initializeRegistry({
-        provider: "ConceptApi",
-        api: "https://coli-conc.gbv.de/api/",
+        provider: "SkosmosApi",
+        api: "https://zbw.eu/beta/skosmos/rest/v1/",
+        schemes: [scheme],
       }),
-      // The scheme we want to tag with
-      scheme: { uri: "https://www.ixtheo.de/classification/" },
     };
   },
+  mounted() {
+    this.loadTop();
+  },
   methods: {
+    async loadTop() {
+      this.topConcepts = await this.registry.getTop({ scheme: this.scheme });
+      this.results = this.topConcepts;
+    },
     // We want to show concepts as [notation] [label]
     labelFor(concept) {
       return `${jskos.notation(concept)} ${jskos.prefLabel(concept)}`;
@@ -73,7 +90,7 @@ export default {
     async search(query) {
       // TODO: Previous query can override results of new query.
       this.isLoading = true;
-      let results = [];
+      let results = this.topConcepts;
       if (query) {
         results = await this.registry.search({
           search: query,
