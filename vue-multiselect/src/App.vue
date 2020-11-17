@@ -71,6 +71,8 @@ export default {
         api: "https://zbw.eu/beta/skosmos/rest/v1/",
         schemes: [scheme],
       }),
+      // Cancel method from previous request
+      cancel: null,
     };
   },
   mounted() {
@@ -86,14 +88,28 @@ export default {
       return `${jskos.notation(concept)} ${jskos.prefLabel(concept)}`;
     },
     async search(query) {
-      // TODO: Previous query can override results of new query.
       this.isLoading = true;
+      // Cancel previos request if necessary
+      this.cancel && this.cancel("canceled")
       let results = this.topConcepts;
       if (query) {
-        results = await this.registry.search({
+        const promise = this.registry.search({
           search: query,
           scheme: this.scheme,
         });
+        this.cancel = promise.cancel
+        try {
+          results = await promise
+        } catch (error) {
+          if (error.message === "canceled") {
+            // Ignore error and return
+            return
+          }
+          // Seems to be a network error, logging to console
+          console.error(error)
+          results = []
+        }
+        this.cancel = null
       }
       this.results = results;
       this.isLoading = false;
