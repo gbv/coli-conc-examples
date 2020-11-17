@@ -1,41 +1,39 @@
 <template>
   <div id="app">
-    <div>
-      <!-- Configure Multiselect component -->
-      <multiselect
-        v-model="selected"
-        track-by="uri"
-        placeholder="Type to search"
-        open-direction="bottom"
-        :customLabel="labelFor"
-        :options="results"
-        :multiple="true"
-        :loading="isLoading"
-        :internal-search="false"
-        :clear-on-select="false"
-        :close-on-select="false"
-        :max-height="300"
-        :show-no-results="false"
-        :hide-selected="true"
-        :preserveSearch="true"
-        @search-change="search"
-      >
-        <!-- Customize tags via Slot -->
-        <template slot="tag" slot-scope="{ option, remove }">
-          <span class="multiselect__tag">
-            <span>
-              {{ labelFor(option) }}
-            </span>
-            <i
-              aria-hidden="true"
-              tabindex="1"
-              class="multiselect__tag-icon"
-              @click="remove(option)"
-            />
+    <!-- Configure Multiselect component -->
+    <multiselect
+      v-model="selected"
+      track-by="uri"
+      placeholder="Type to search"
+      open-direction="bottom"
+      :customLabel="labelFor"
+      :options="results"
+      :multiple="true"
+      :loading="isLoading"
+      :internal-search="false"
+      :clear-on-select="false"
+      :close-on-select="false"
+      :max-height="300"
+      :show-no-results="false"
+      :hide-selected="true"
+      :preserveSearch="true"
+      @search-change="search"
+    >
+      <!-- Customize tags via Slot -->
+      <template slot="tag" slot-scope="{ option, remove }">
+        <span class="multiselect__tag">
+          <span>
+            {{ labelFor(option) }}
           </span>
-        </template>
-      </multiselect>
-    </div>
+          <i
+            aria-hidden="true"
+            tabindex="1"
+            class="multiselect__tag-icon"
+            @click="remove(option)"
+          />
+        </span>
+      </template>
+    </multiselect>
   </div>
 </template>
 
