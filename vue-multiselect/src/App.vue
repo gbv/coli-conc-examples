@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div>
-      <concept-detail :concept="selected[selected.length - 1]" />
       <!-- Configure Multiselect component -->
       <multiselect
         v-model="selected"
@@ -44,7 +43,6 @@
 import Multiselect from "vue-multiselect";
 import cdk from "cocoda-sdk";
 import jskos from "jskos-tools";
-import ConceptDetail from "./components/ConceptDetail";
 
 const scheme = {
   uri: "http://zbw.eu/stw",
@@ -57,7 +55,6 @@ export default {
   name: "App",
   components: {
     Multiselect,
-    ConceptDetail,
   },
   data() {
     return {
