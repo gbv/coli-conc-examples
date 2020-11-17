@@ -1,30 +1,23 @@
 <template>
   <div id="app">
-    <!-- Configure Multiselect component -->
     <multiselect
       v-model="selected"
       track-by="uri"
       placeholder="Type to search"
-      open-direction="bottom"
       :customLabel="labelFor"
       :options="results"
       :multiple="true"
       :loading="isLoading"
       :internal-search="false"
-      :clear-on-select="false"
       :close-on-select="false"
       :max-height="300"
       :show-no-results="false"
       :hide-selected="true"
-      :preserveSearch="true"
       @search-change="search"
     >
-      <!-- Customize tags via Slot -->
       <template slot="tag" slot-scope="{ option, remove }">
         <span class="multiselect__tag">
-          <span>
-            {{ labelFor(option) }}
-          </span>
+          <span v-text="labelFor(option)" />
           <i
             aria-hidden="true"
             tabindex="1"
@@ -38,16 +31,16 @@
 </template>
 
 <script>
-import Multiselect from "vue-multiselect";
-import cdk from "cocoda-sdk";
-import jskos from "jskos-tools";
+import Multiselect from "vue-multiselect"
+import cdk from "cocoda-sdk"
+import jskos from "jskos-tools"
 
 const scheme = {
   uri: "http://zbw.eu/stw",
   identifier: ["http://bartoc.org/en/node/313"],
   VOCID: "stw",
   uriPattern: "^http://zbw\\.eu/stw/descriptor/(\\d+\\-\\d)$",
-};
+}
 
 export default {
   name: "App",
@@ -57,15 +50,15 @@ export default {
   data() {
     return {
       isLoading: false,
-      // Top concepts loaded in mounted
+      // top concepts loaded in mounted
       topConcepts: [],
-      // The selected concepts (= shown as tags)
+      // selected concepts (= shown as tags)
       selected: [],
-      // The results of the search query
+      // results of the search query
       results: [],
-      // The scheme we want to tag with (see above)
+      // scheme we want to tag with (see above)
       scheme,
-      // The registry we are using for API queries
+      // registry we are using for API queries
       registry: cdk.initializeRegistry({
         provider: "SkosmosApi",
         api: "https://zbw.eu/beta/skosmos/rest/v1/",
@@ -73,36 +66,35 @@ export default {
       }),
       // Cancel method from previous request
       cancel: null,
-    };
+    }
   },
   mounted() {
-    this.loadTop();
+    this.loadTop()
   },
   methods: {
     async loadTop() {
-      this.topConcepts = await this.registry.getTop({ scheme: this.scheme });
-      this.results = this.topConcepts;
+      this.topConcepts = await this.registry.getTop({ scheme: this.scheme })
+      this.results = this.topConcepts
     },
-    // We want to show concepts as [notation] [label]
+    // we want to show concepts as [notation] [label]
     labelFor(concept) {
-      return `${jskos.notation(concept)} ${jskos.prefLabel(concept)}`;
+      return `${jskos.notation(concept)} ${jskos.prefLabel(concept)}`
     },
     async search(query) {
-      this.isLoading = true;
-      // Cancel previos request if necessary
+      this.isLoading = true
+      // cancel previos request if necessary
       this.cancel && this.cancel("canceled")
-      let results = this.topConcepts;
+      let results = this.topConcepts
       if (query) {
         const promise = this.registry.search({
           search: query,
           scheme: this.scheme,
-        });
+        })
         this.cancel = promise.cancel
         try {
           results = await promise
         } catch (error) {
           if (error.message === "canceled") {
-            // Ignore error and return
             return
           }
           // Seems to be a network error, logging to console
@@ -111,14 +103,13 @@ export default {
         }
         this.cancel = null
       }
-      this.results = results;
-      this.isLoading = false;
+      this.results = results
+      this.isLoading = false
     },
   },
-};
+}
 </script>
 
-// Styles for Multiselect component
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
 #app {
