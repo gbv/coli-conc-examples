@@ -15,8 +15,7 @@ npm run serve
 
 ## Try out online
 
-...
-
+[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/competent-field-u41d9)
 
 [React]: https://www.npmjs.com/package/react-bootstrap-typeahead
 [cocoda-sdk]: https://github.com/gbv/cocoda-sdk#readme

@@ -12,7 +12,7 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
 
-* **[react-bootstrap-typeahead](react-bootstrap-typeahead) select concepts from a vocabulary with [React Boostrap Typeahead].
+* **[react-bootstrap-typeahead](react-bootstrap-typeahead)** select concepts from a vocabulary with [React Bootstrap Typeahead].
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
 
