@@ -15,7 +15,7 @@ npm run serve
 
 ## Try out online
 
-[![Edit coli-conc-vue-multiselect](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/coli-conc-vue-multiselect-2qfl2)
+[![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/vue-multiselect?file=/src/App.vue)
 
 [vue]: https://vuejs.org/
 [cocoda-sdk]: https://github.com/gbv/cocoda-sdk#readme
