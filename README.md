@@ -12,7 +12,13 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
 
+* **[react-bootstrap-typeahead](react-bootstrap-typeahead) select concepts from a vocabulary with [React Boostrap Typeahead].
+
+  Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
+
+
 [Vue-Multiselect]: https://vue-multiselect.js.org/
+[React Bootstrap Typeahead]: https://www.npmjs.com/package/react-bootstrap-typeahead
 [cocoda-sdk]: https://github.com/gbv/cocoda-sdk#readme
 [jskos-tools]: https://github.com/gbv/jskos-tools#readme
 

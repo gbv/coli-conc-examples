@@ -4,6 +4,8 @@
 
 This sample web application build with the [Vue] JavaScript framework uses [cocoda-sdk] to search on a vocabulary and [jskos-tools] to show concept information.
 
+See [react-bootstrap-typeahead](react-bootstrap-typeahead) for an example with same functionality based on React framework.
+
 ## Try out locally
 
 ```bash
