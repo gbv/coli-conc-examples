@@ -2,20 +2,33 @@
 
 > Example projects demonstrating how to use services of project coli-conc
 
-This repository contains simple examples and documentation to illustrate usage and features of vocabulary services and libraries developed as part of [project coli-conc](https://coli-conc.gbv.de/). The content was prepared for [a SWIB 2020 Workshop](http://swib.org/swib20/programme.html#abs06) but it can also be used independently.
+This repository contains simple examples and documentation to illustrate usage and features of vocabulary services and libraries developed as part of [project coli-conc](https://coli-conc.gbv.de/). The content was prepared for [a SWIB 2020 Workshop](http://swib.org/swib20/programme.html#abs06) (participants [join the chat](https://swib20.collocall.de/swib20/channels/coli-conc-workshop)) but it can also be used independently. Most examples can be run locally or at [CodeSandbox](https://codesandbox.io/).
+
+## Install locally
+
+On a system with git, NodeJS, and npm:
+
+~~~bash
+git clone https://github.com/gbv/coli-conc-examples.git
+cd coli-conc-examples
+./install.sh # calls `npm install` in each directory
+~~~
 
 ## Source examples
 
 Each example is located in a subdirectory with it's own `README.md` for additional description.
 
-* **[vue-multiselect](vue-multiselect)** select concepts from a vocabulary with [Vue-Multiselect].
+* **[vue-multiselect](vue-multiselect)** select concepts from a vocabulary with [Vue-Multiselect]. 
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
+
+  [![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/vue-multiselect?file=/src/App.vue)
 
 * **[react-bootstrap-typeahead](react-bootstrap-typeahead)** select concepts from a vocabulary with [React Bootstrap Typeahead].
 
   Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
 
+  [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/react-bootstrap-typeahead?file=/src/App.vue)
 
 [Vue-Multiselect]: https://vue-multiselect.js.org/
 [React Bootstrap Typeahead]: https://www.npmjs.com/package/react-bootstrap-typeahead
