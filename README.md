@@ -2,9 +2,9 @@
 
 > Example projects demonstrating how to use services of project coli-conc
 
-This repository contains simple examples to illustrate usage and features of vocabulary services and libraries developed as part of [project coli-conc](https://coli-conc.gbv.de/).
+This repository contains simple examples and documentation to illustrate usage and features of vocabulary services and libraries developed as part of [project coli-conc](https://coli-conc.gbv.de/). The content was prepared for [a SWIB 2020 Workshop](http://swib.org/swib20/programme.html#abs06) but it can also be used independently.
 
-## Examples
+## Source examples
 
 Each example is located in a subdirectory with it's own `README.md` for additional description.
 
@@ -25,7 +25,7 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 [login-server]: https://github.com/gbv/login-server#readme
 [wikidata-jskos]: https://github.com/gbv/wikidata-jskos#readme
 
-## Additional examples
+## External examples
 
 See production applications and services to learn about additional functionality:
 
