@@ -4,7 +4,7 @@
       v-model="selected"
       track-by="uri"
       placeholder="Type to search"
-      :customLabel="labelFor"
+      :custom-label="labelFor"
       :options="results"
       :multiple="true"
       :loading="isLoading"
@@ -13,17 +13,17 @@
       :max-height="300"
       :show-no-results="false"
       :hide-selected="true"
-      @search-change="search"
-    >
-      <template slot="tag" slot-scope="{ option, remove }">
+      @search-change="search">
+      <template
+        slot="tag"
+        slot-scope="{ option, remove }">
         <span class="multiselect__tag">
           <span v-text="labelFor(option)" />
           <i
             aria-hidden="true"
             tabindex="1"
             class="multiselect__tag-icon"
-            @click="remove(option)"
-          />
+            @click="remove(option)" />
         </span>
       </template>
     </multiselect>
