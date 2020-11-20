@@ -64,7 +64,7 @@ export default {
         api: "https://zbw.eu/beta/skosmos/rest/v1/",
         schemes: [scheme],
       }),
-      // Cancel method from previous request
+      // cancel method from previous request
       cancel: null,
     }
   },
@@ -98,7 +98,7 @@ export default {
           if (error.message === "canceled") {
             return
           }
-          // Seems to be a network error, logging to console
+          // seems to be a network error, logging to console
           console.error(error)
           results = []
         }
