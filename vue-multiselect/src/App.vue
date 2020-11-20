@@ -84,6 +84,7 @@ export default {
       this.isLoading = true
       // cancel previos request if necessary
       this.cancel && this.cancel("canceled")
+      this.results = []
       let results = this.topConcepts
       if (query) {
         const promise = this.registry.search({
