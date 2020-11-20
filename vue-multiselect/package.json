@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "cocoda-sdk": "1.0.3",
+    "eslint-config-gbv": "github:gbv/eslint-config-gbv#37a4fda",
     "jskos-tools": "1.0.14",
     "vue": "^2.6.11",
     "vue-multiselect": "2.1.6"
@@ -25,11 +26,12 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "browser": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+      "gbv",
+      "gbv/vue"
     ],
     "rules": {},
     "parserOptions": {
