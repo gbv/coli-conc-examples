@@ -20,15 +20,21 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 
 * **[vue-multiselect](vue-multiselect)** select concepts from a vocabulary with [Vue-Multiselect]. 
 
-  Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
+  Uses [cocoda-sdk] to search and access concepts from a vocabulary and [jskos-tools] to show concept information
 
   [![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/vue-multiselect?file=/src/App.vue)
 
 * **[react-bootstrap-typeahead](react-bootstrap-typeahead)** select concepts from a vocabulary with [React Bootstrap Typeahead].
 
-  Uses [cocoda-sdk] to access vocabularies and [jskos-tools] to show concept information
+  Uses [cocoda-sdk] to search and access concepts from a vocabulary and [jskos-tools] to show concept information
 
   [![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/react-bootstrap-typeahead?file=/src/App.vue)
+
+* **[vue-browsing](vue-browsing)**
+
+  Uses [cocoda-sdk] to browse concepts from a vocabulary and [jskos-tools] to show concept information
+
+  [![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/vue-browsing?file=/src/App.vue)
 
 [Vue-Multiselect]: https://vue-multiselect.js.org/
 [React Bootstrap Typeahead]: https://www.npmjs.com/package/react-bootstrap-typeahead
