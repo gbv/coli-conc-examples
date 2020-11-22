@@ -1,0 +1,7 @@
+{
+  "prefLabel": {
+    "en": "animals"
+  },
+  "uri": "http://example.org/animals/",
+  "namespace": "http://example.org/animals/id/"
+}

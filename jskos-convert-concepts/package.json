@@ -1,0 +1,12 @@
+{
+  "name": "jskos-convert-concepts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "convert": "jskos-convert",
+    "validate": "jskos-validate"
+  },
+  "dependencies": {
+    "jskos-cli": "^0.4.4"
+  }
+}

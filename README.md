@@ -36,9 +36,14 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 
   [![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/gbv/coli-conc-examples/tree/main/vue-browsing?file=/src/App.vue)
 
+* **[jskos-convert-concepts](jskos-convert-concepts)**
+
+  Uses [jskos-cli] to convert a CSV file with a vocabulary into JSKOS format
+
 [Vue-Multiselect]: https://vue-multiselect.js.org/
 [React Bootstrap Typeahead]: https://www.npmjs.com/package/react-bootstrap-typeahead
 [cocoda-sdk]: https://github.com/gbv/cocoda-sdk#readme
+[jskos-cli]: https://github.com/gbv/jskos-cli#readme
 [jskos-tools]: https://github.com/gbv/jskos-tools#readme
 [jskos-server]: https://github.com/gbv/jskos-server#readme
 [login-server]: https://github.com/gbv/login-server#readme
