@@ -70,7 +70,10 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-.selectable:hover {
+a {
+  text-decoration: none;
+}
+.selectable:hover, a:hover {
   cursor: pointer;
   text-decoration: underline;
 }

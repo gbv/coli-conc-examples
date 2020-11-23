@@ -16,6 +16,11 @@
     <concept
       :concept="concept"
       :selectable="false" />
+    <small>
+      URI: <a :href="concept.uri">{{ concept.uri }}</a><br>
+      <!-- Show all prefLabels as "Label (language)", separated by comma -->
+      Labels: {{ Object.entries(concept.prefLabel).map(e => `${e[1]} (${e[0]})`).join(", ") }}
+    </small>
 
     <div class="narrower">
       Narrower:
