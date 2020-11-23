@@ -14,12 +14,12 @@
     </div>
 
     <concept
-      :concept="concept"
+      :concept="_concept"
       :selectable="false" />
     <small>
-      URI: <a :href="concept.uri">{{ concept.uri }}</a><br>
+      URI: <a :href="_concept.uri">{{ _concept.uri }}</a><br>
       <!-- Show all prefLabels as "Label (language)", separated by comma -->
-      Labels: {{ Object.entries(concept.prefLabel).map(e => `${e[1]} (${e[0]})`).join(", ") }}
+      Labels: {{ Object.entries(_concept.prefLabel).map(e => `${e[1]} (${e[0]})`).join(", ") }}
     </small>
 
     <div class="narrower">
@@ -53,16 +53,28 @@ export default {
   },
   data() {
     return {
+      details: null,
       ancestors: [],
       narrower: [],
     }
   },
+  computed: {
+    // if details are available, use details, otherwise use concept
+    _concept() {
+      return this.details || this.concept
+    },
+  },
   mounted() {
+    // load details for current concept
+    this.loadDetails()
     // load ancestors and narrower
     this.loadAncestors()
     this.loadNarrower()
   },
   methods: {
+    async loadDetails() {
+      this.details = (await this.registry.getConcepts({ concepts: [this.concept] }))[0]
+    },
     async loadAncestors() {
       this.ancestors = []
       this.ancestors = await this.registry.getAncestors({ concept: this.concept })
