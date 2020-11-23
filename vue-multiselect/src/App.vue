@@ -13,6 +13,8 @@
       :max-height="300"
       :show-no-results="false"
       :hide-selected="true"
+      :clear-on-select="false"
+      :preserve-search="true"
       @search-change="search">
       <template
         slot="tag"
