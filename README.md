@@ -40,6 +40,10 @@ Each example is located in a subdirectory with it's own `README.md` for addition
 
   Uses [jskos-cli] to convert a CSV file with a vocabulary into JSKOS format
 
+* **[jskos-tools-examples](https://observablehq.com/@nichtich/jskos-tools-examples)**
+
+  Process JSKOS data with [jskos-tools] in [Observable](https://observablehq.com/)
+  
 [Vue-Multiselect]: https://vue-multiselect.js.org/
 [React Bootstrap Typeahead]: https://www.npmjs.com/package/react-bootstrap-typeahead
 [cocoda-sdk]: https://github.com/gbv/cocoda-sdk#readme
