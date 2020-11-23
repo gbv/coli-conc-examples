@@ -2,33 +2,19 @@
   <div id="app">
     <multiselect
       v-model="selected"
-      track-by="uri"
       placeholder="Type to search"
-      :custom-label="labelFor"
+      track-by="uri"
       :options="results"
-      :multiple="true"
       :loading="isLoading"
+      :custom-label="labelFor"
+      :multiple="true"
+      :max-height="300"
+      :hide-selected="true"
       :internal-search="false"
       :close-on-select="false"
-      :max-height="300"
-      :show-no-results="false"
-      :hide-selected="true"
       :clear-on-select="false"
       :preserve-search="true"
-      @search-change="search">
-      <template
-        slot="tag"
-        slot-scope="{ option, remove }">
-        <span class="multiselect__tag">
-          <span v-text="labelFor(option)" />
-          <i
-            aria-hidden="true"
-            tabindex="1"
-            class="multiselect__tag-icon"
-            @click="remove(option)" />
-        </span>
-      </template>
-    </multiselect>
+      @search-change="search" />
   </div>
 </template>
 
