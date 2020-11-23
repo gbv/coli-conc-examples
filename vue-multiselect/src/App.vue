@@ -44,8 +44,6 @@ export default {
       selected: [],
       // results of the search query
       results: [],
-      // scheme we want to tag with (see above)
-      scheme,
       // registry we are using for API queries
       registry: cdk.initializeRegistry({
         provider: "SkosmosApi",
@@ -61,7 +59,7 @@ export default {
   },
   methods: {
     async loadTop() {
-      this.topConcepts = await this.registry.getTop({ scheme: this.scheme })
+      this.topConcepts = await this.registry.getTop({ scheme })
       this.results = this.topConcepts
     },
     // we want to show concepts as [notation] [label]
@@ -77,7 +75,7 @@ export default {
       if (query) {
         const promise = this.registry.search({
           search: query,
-          scheme: this.scheme,
+          scheme,
         })
         this.cancel = promise.cancel
         try {
