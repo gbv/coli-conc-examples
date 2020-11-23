@@ -2,6 +2,7 @@
   <div id="app">
     <concept-details
       v-if="selected"
+      :key="selected.uri"
       :concept="selected"
       :registry="registry"
       @select="selected = $event" />
@@ -41,8 +42,6 @@ export default {
       topConcepts: [],
       // selected concept
       selected: null,
-      // scheme we want to tag with (see above)
-      scheme,
       // registry we are using for API queries
       registry: cdk.initializeRegistry({
         provider: "SkosmosApi",
@@ -56,7 +55,7 @@ export default {
   },
   methods: {
     async loadTop() {
-      this.topConcepts = await this.registry.getTop({ scheme: this.scheme })
+      this.topConcepts = await this.registry.getTop({ scheme })
       this.results = this.topConcepts
     },
   },
@@ -70,5 +69,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 60px;
+}
+.selectable:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 </style>

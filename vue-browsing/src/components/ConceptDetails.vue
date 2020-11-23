@@ -1,10 +1,10 @@
 <template>
   <div class="concept-details">
-    <!-- Ancestors -->
     <div class="ancestors">
       <div
+        class="selectable"
         @click="$emit('select', null)">
-        ^ Top Concepts
+        ^ Top
       </div>
       <concept
         v-for="ancestor in ancestors"
@@ -12,18 +12,18 @@
         :concept="ancestor"
         @click.native="$emit('select', ancestor)" />
     </div>
-    <!-- Concept -->
-    <concept :concept="concept" />
-    <!-- Details -->
 
-    <!-- Narrower -->
+    <concept
+      :concept="concept"
+      :selectable="false" />
+
     <div class="narrower">
       Narrower:
       <concept
-        v-for="narrower in narrower"
-        :key="narrower.uri"
-        :concept="narrower"
-        @click.native="$emit('select', narrower)" />
+        v-for="child in narrower"
+        :key="child.uri"
+        :concept="child"
+        @click.native="$emit('select', child)" />
     </div>
   </div>
 </template>
@@ -36,7 +36,16 @@ export default {
   components: {
     Concept,
   },
-  props: ["concept", "registry"],
+  props: {
+    concept: {
+      type: Object,
+      required: true,
+    },
+    registry: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       ancestors: [],
@@ -44,27 +53,18 @@ export default {
     }
   },
   mounted() {
-    this.loadRelatives()
-  },
-  watch: {
-    concept() {
-      this.loadRelatives()
-    },
+    // load ancestors and narrower
+    this.loadAncestors()
+    this.loadNarrower()
   },
   methods: {
-    loadRelatives() {
-      // load ancestors and narrower
-      // TODO: Set conditions when they don't have to be loaded
-      this.loadAncestors()
-      this.loadNarrower()
-    },
     async loadAncestors() {
+      this.ancestors = []
       this.ancestors = await this.registry.getAncestors({ concept: this.concept })
-      console.log("Ancestors:", this.ancestors)
     },
     async loadNarrower() {
+      this.narrower = []
       this.narrower = await this.registry.getNarrower({ concept: this.concept })
-      console.log("Narrower:", this.narrower)
     },
   },
 }

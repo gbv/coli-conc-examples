@@ -1,5 +1,9 @@
 <template>
-  <div class="concept">
+  <div
+    :class="{
+      concept: true,
+      selectable,
+    }">
     <b>{{ notation }}</b> {{ label }}
   </div>
 </template>
@@ -9,7 +13,16 @@ import jskos from "jskos-tools"
 
 export default {
   name: "Concept",
-  props: ["concept"],
+  props: {
+    concept: {
+      type: Object,
+      required: true,
+    },
+    selectable: {
+      type: Boolean,
+      default: true,
+    },
+  },
   computed: {
     notation() {
       return jskos.notation(this.concept)
