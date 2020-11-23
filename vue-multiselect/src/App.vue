@@ -29,6 +29,12 @@ const scheme = {
   VOCID: "stw",
   uriPattern: "^http://zbw\\.eu/stw/descriptor/(\\d+\\-\\d)$",
 }
+// registry we are using for API queries
+const registry = cdk.initializeRegistry({
+  provider: "SkosmosApi",
+  api: "https://zbw.eu/beta/skosmos/rest/v1/",
+  schemes: [scheme],
+})
 
 export default {
   name: "App",
@@ -44,12 +50,6 @@ export default {
       selected: [],
       // results of the search query
       results: [],
-      // registry we are using for API queries
-      registry: cdk.initializeRegistry({
-        provider: "SkosmosApi",
-        api: "https://zbw.eu/beta/skosmos/rest/v1/",
-        schemes: [scheme],
-      }),
       // cancel method from previous request
       cancel: null,
     }
@@ -59,7 +59,7 @@ export default {
   },
   methods: {
     async loadTop() {
-      this.topConcepts = await this.registry.getTop({ scheme })
+      this.topConcepts = await registry.getTop({ scheme })
       this.results = this.topConcepts
     },
     // we want to show concepts as [notation] [label]
@@ -73,7 +73,7 @@ export default {
       this.results = []
       let results = this.topConcepts
       if (query) {
-        const promise = this.registry.search({
+        const promise = registry.search({
           search: query,
           scheme,
         })
