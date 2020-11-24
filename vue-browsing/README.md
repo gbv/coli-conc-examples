@@ -18,6 +18,7 @@ npm run serve
 ## Ideas for improvements/changes
 
 - Make it look nicer
+- Add sorting to narrower concepts
 - Use a different registry and vocabulary, offer a selection of multiple vocabularies
 - Add a search field for concepts, like in the [vue-multiselect example](https://github.com/gbv/coli-conc-examples/tree/main/vue-multiselect)
 - Instead of loading concept details every time a new concept is selected, save the whole concept tree in memory as it is loaded
