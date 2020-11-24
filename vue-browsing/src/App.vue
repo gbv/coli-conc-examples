@@ -24,10 +24,7 @@ import ConceptDetails from "./components/ConceptDetails"
 import cdk from "cocoda-sdk"
 
 const scheme = {
-  uri: "http://zbw.eu/stw",
-  identifier: ["http://bartoc.org/en/node/313"],
-  VOCID: "stw",
-  uriPattern: "^http://zbw\\.eu/stw/descriptor/(\\d+\\-\\d)$",
+  uri: "http://uri.gbv.de/terminology/msc2020/",
 }
 
 export default {
@@ -44,9 +41,8 @@ export default {
       selected: null,
       // registry we are using for API queries
       registry: cdk.initializeRegistry({
-        provider: "SkosmosApi",
-        api: "https://zbw.eu/beta/skosmos/rest/v1/",
-        schemes: [scheme],
+        provider: "ConceptApi",
+        api: "https://coli-conc.gbv.de/api/",
       }),
     }
   },
