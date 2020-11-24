@@ -59,9 +59,9 @@ export default {
     }
   },
   computed: {
-    // if details are available, use details, otherwise use concept
+    // merge details into concept
     _concept() {
-      return this.details || this.concept
+      return Object.assign(this.concept || {}, this.details || {})
     },
   },
   mounted() {
