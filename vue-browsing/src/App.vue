@@ -21,7 +21,8 @@
 <script>
 import Concept from "./components/Concept"
 import ConceptDetails from "./components/ConceptDetails"
-import cdk from "cocoda-sdk"
+import { cdk, SkosmosApiProvider } from "cocoda-sdk"
+cdk.addProvider(SkosmosApiProvider)
 
 const scheme = {
   uri: "http://zbw.eu/stw",

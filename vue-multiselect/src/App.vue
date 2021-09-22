@@ -20,7 +20,8 @@
 
 <script>
 import Multiselect from "vue-multiselect"
-import cdk from "cocoda-sdk"
+import { cdk, SkosmosApiProvider } from "cocoda-sdk"
+cdk.addProvider(SkosmosApiProvider)
 import jskos from "jskos-tools"
 
 const scheme = {

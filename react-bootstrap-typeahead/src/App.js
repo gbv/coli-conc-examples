@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
-import cdk from 'cocoda-sdk';
+import { cdk, SkosmosApiProvider } from 'cocoda-sdk';
+cdk.addProvider(SkosmosApiProvider)
 import jskos from 'jskos-tools'
 
 import 'react-bootstrap-typeahead/css/Typeahead.css';
